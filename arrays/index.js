@@ -1,3 +1,5 @@
+'use strict';
+
 function ArrayWithMissingElements() {
     const a = [];
     console.log(a);
@@ -30,7 +32,7 @@ function DeleteRemainingElements() {
 }
 
 function DeleteUndefinedElement() {
-    a = [];
+    let a = [];
     a[3] = 100;
     a[5] = 200;
     console.log(a);
@@ -59,7 +61,50 @@ function Slice() {
     console.log(b);
 }
 
-const functions = [ArrayWithMissingElements, InitializeArray, AddArrayToObject, AddObjectToArray, DeleteRemainingElements, DeleteUndefinedElement, DeleteOneElement, Slice];
+// triple dot ... on the "sending end" -> "fan out values"
+function Spread() {
+    const a = [5, 7, 9, 11, 13, 15, 17];
+    console.log(...a);
+    SpreadCallee(...a);
+    SpreadCallee2(...a);
+    const b = [0, ...a, 100];
+    console.log(b);
+}
+
+function SpreadCallee(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+    console.log(a, b, c, d, e, f, g, h, i, j, k, l, m, n);
+}
+
+function SpreadCallee2(p) {
+    console.log(p);
+}
+
+function Destruct() {
+    const a = [5, 7, 9, 11, 13, 15, 17];
+    const [x, y, , , , z] = a; // sparse destructing
+    console.log(x, y, z);
+}
+
+function DestructWithDefault() {
+    const a = [2, 3];
+    const [x, y, z = 100] = a;
+    console.log(x, y, z);
+}
+
+// triple dot on the "receiving end" -> get the "rest"
+function DestructWithRest() {
+    const a = [5, 7, 9, 11, 13, 15, 17];
+    const [x, ...y] = a;
+    console.log(y);
+}
+
+function DestructString() {
+    const a = 'Hello World';
+    const b = [...a];
+    console.log(b);
+}
+
+const functions = [ArrayWithMissingElements, InitializeArray, AddArrayToObject, AddObjectToArray, DeleteRemainingElements, DeleteUndefinedElement, DeleteOneElement, Slice, Spread, Destruct, DestructWithDefault, DestructWithRest, DestructString];
 functions.forEach(f => {
     console.log('--- ' + f.name);
     f();

@@ -1,6 +1,6 @@
 'use strict';
 
-function ArrayWithMissingElements() {
+function arrayWithMissingElements() {
     const a = [];
     console.log(a);
     a[3] = 5;
@@ -10,28 +10,28 @@ function ArrayWithMissingElements() {
     console.log(a);
 }
 
-function InitializeArray() {
+function initializeArray() {
     const a = Array(16);
     console.log(a);
 }
 
-function AddArrayToObject() {
+function addArrayToObject() {
     const obj = [] + {};
     console.log(obj);
 }
 
-function AddObjectToArray() {
+function addObjectToArray() {
     const obj = {} + [];
     console.log(obj);
 }
 
-function DeleteRemainingElements() {
+function deleteRemainingElements() {
     const a = [5, 7, 9, 11, 13, 15, 17];
     a.splice(3);
     console.log(a);
 }
 
-function DeleteUndefinedElement() {
+function deleteUndefinedElement() {
     let a = [];
     a[3] = 100;
     a[5] = 200;
@@ -43,13 +43,13 @@ function DeleteUndefinedElement() {
     console.log(a);
 }
 
-function DeleteOneElement() {
+function deleteOneElement() {
     const a = [5, 7, 9, 11, 13, 15, 17];
     a.splice(3, 1);
     console.log(a);
 }
 
-function Slice() {
+function slice() {
     const a = [5, 7, 9, 11, 13, 15, 17];
     console.log(a);
     const b = a.slice(undefined, 3);
@@ -62,49 +62,49 @@ function Slice() {
 }
 
 // triple dot ... on the "sending end" -> "fan out values"
-function Spread() {
+function spread() {
     const a = [5, 7, 9, 11, 13, 15, 17];
     console.log(...a);
-    SpreadCallee(...a);
-    SpreadCallee2(...a);
+    spreadCallee(...a);
+    spreadCallee2(...a);
     const b = [0, ...a, 100];
     console.log(b);
 }
 
-function SpreadCallee(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+function spreadCallee(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
     console.log(a, b, c, d, e, f, g, h, i, j, k, l, m, n);
 }
 
-function SpreadCallee2(p) {
+function spreadCallee2(p) {
     console.log(p);
 }
 
-function Destruct() {
+function destruct() {
     const a = [5, 7, 9, 11, 13, 15, 17];
     const [x, y, , , , z] = a; // sparse destructing
     console.log(x, y, z);
 }
 
-function DestructWithDefault() {
+function destructWithDefault() {
     const a = [2, 3];
     const [x, y, z = 100] = a;
     console.log(x, y, z);
 }
 
 // triple dot on the "receiving end" -> get the "rest"
-function DestructWithRest() {
+function destructWithRest() {
     const a = [5, 7, 9, 11, 13, 15, 17];
     const [x, ...y] = a;
     console.log(y);
 }
 
-function DestructString() {
+function destructString() {
     const a = 'Hello World';
     const b = [...a];
     console.log(b);
 }
 
-const functions = [ArrayWithMissingElements, InitializeArray, AddArrayToObject, AddObjectToArray, DeleteRemainingElements, DeleteUndefinedElement, DeleteOneElement, Slice, Spread, Destruct, DestructWithDefault, DestructWithRest, DestructString];
+const functions = [arrayWithMissingElements, initializeArray, addArrayToObject, addObjectToArray, deleteRemainingElements, deleteUndefinedElement, deleteOneElement, slice, spread, destruct, destructWithDefault, destructWithRest, destructString];
 functions.forEach(f => {
     console.log('--- ' + f.name);
     f();

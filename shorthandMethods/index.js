@@ -1,6 +1,6 @@
 'use strict';
 
-function GetAndSet() {
+function getAndSet() {
     var a = {
         set name(value) {
             if (!value) {
@@ -34,7 +34,7 @@ function GetAndSet() {
     }
 }
 
-function Shorthand() {
+function shorthand() {
     const a = {
         foo() {
             return 'foo has been called';
@@ -43,7 +43,7 @@ function Shorthand() {
     console.log(a.foo());
 }
 
-const functions = [GetAndSet, Shorthand];
+const functions = [getAndSet, shorthand];
 functions.forEach(f => {
     console.log('--- ' + f.name);
     f();
